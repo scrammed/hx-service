@@ -7,20 +7,17 @@ import os
 app = Flask(__name__)
 
 w = os.environ.get('WORKSPACE')
-# p = os.environ.get('STEAMSHIP_PLUGIN')
+p = os.environ.get('STEAMSHIP_PLUGIN')
 
 @app.route('/')
 def hello_world():
     return 'Hello, huxian99'
 
-def test():
-    print()
-
 @app.route('/ai/gpt4')
 def hello_user():
     try:
         client = Steamship(workspace=w)
-        generator = client.use_plugin('gpt-4')
+        generator = client.use_plugin(p)
         q = request.args.get('q')
         task = generator.generate(text=q)
         task.wait()
