@@ -9,8 +9,8 @@ p = os.environ.get('STEAMSHIP_PLUGIN')
 
 print(w, p)
 
-client = Steamship(workspace=w)
-generator = client.use_plugin(p)
+# client = Steamship(workspace=w)
+# generator = client.use_plugin(p)
 
 @app.route('/')
 def hello_world():
