@@ -1,11 +1,13 @@
 from flask import Flask, request
 from steamship import Steamship
 import os
+# from dotenv import load_dotenv
+# load_dotenv() 
 
 app = Flask(__name__)
 
 w = os.environ.get('WORKSPACE')
-p = os.environ.get('STEAMSHIP_PLUGIN')
+# p = os.environ.get('STEAMSHIP_PLUGIN')
 
 @app.route('/')
 def hello_world():
@@ -17,7 +19,7 @@ def test():
 @app.route('/ai/gpt4')
 def hello_user():
     client = Steamship(workspace=w)
-    generator = client.use_plugin(p)
+    generator = client.use_plugin('gpt-4')
     q = request.args.get('q')
     task = generator.generate(text=q)
     task.wait()
