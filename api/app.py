@@ -11,7 +11,7 @@ w = os.environ.get('WORKSPACE')
 
 @app.route('/')
 def hello_world():
-    return 'Hello, huxian99'
+    return 'Hello, huxian99' + isinstance(w, str)
 
 def test():
     print()
