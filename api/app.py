@@ -1,9 +1,6 @@
 from flask import Flask, request
-# from steamship import Steamship
-# from dotenv import load_dotenv
+from steamship import Steamship
 import os
-
-# load_dotenv()
 
 app = Flask(__name__)
 
@@ -12,8 +9,8 @@ p = os.environ.get('STEAMSHIP_PLUGIN')
 
 print(w, p)
 
-# client = Steamship(workspace=w)
-# generator = client.use_plugin(p)
+client = Steamship(workspace=w)
+generator = client.use_plugin(p)
 
 @app.route('/')
 def hello_world():
