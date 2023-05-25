@@ -1,14 +1,14 @@
 from flask import Flask, request
 from steamship import Steamship
 # from dotenv import load_dotenv
-# import os
+import os
 
 # load_dotenv()
 
 app = Flask(__name__)
 
-# client = Steamship(workspace=os.environ.get('WORKSPACE'))
-# generator = client.use_plugin(os.environ.get('STEAMSHIP_PLUGIN'))
+client = Steamship(workspace=os.environ.get('WORKSPACE'))
+generator = client.use_plugin(os.environ.get('STEAMSHIP_PLUGIN'))
 
 @app.route('/')
 def hello_world():
