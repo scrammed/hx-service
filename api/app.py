@@ -9,9 +9,13 @@ app = Flask(__name__)
 w = os.environ.get('WORKSPACE')
 # p = os.environ.get('STEAMSHIP_PLUGIN')
 
+m = 'null'
+if (isinstance(w, str)):
+    m = '是字符串'
+
 @app.route('/')
 def hello_world():
-    return 'Hello, huxian99' + isinstance(w, str)
+    return 'Hello, huxian99' + m
 
 def test():
     print()
