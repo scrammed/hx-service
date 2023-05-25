@@ -7,11 +7,11 @@ import os
 
 app = Flask(__name__)
 
-workspace = os.environ.get('WORKSPACE')
-steamship_plugin = os.environ.get('STEAMSHIP_PLUGIN')
+w = os.environ.get('WORKSPACE')
+p = os.environ.get('STEAMSHIP_PLUGIN')
 
-client = Steamship(workspace=workspace)
-generator = client.use_plugin(steamship_plugin)
+client = Steamship(workspace=w)
+generator = client.use_plugin(p)
 
 @app.route('/')
 def hello_world():
